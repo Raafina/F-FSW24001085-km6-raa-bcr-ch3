@@ -5,7 +5,6 @@ const dateRent = document.getElementById("date");
 const totalPassanger = document.getElementById("total-passanger");
 const buttonSearchCar = document.getElementById("search-submit");
 const sortSelect = document.getElementById("sort");
-const sortby = document.getElementById("sort-by");
 
 buttonSearchCar.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -67,16 +66,6 @@ buttonSearchCar.addEventListener("submit", (event) => {
 });
 
 function printSortByYear(carsData) {
-  sortby.innerHTML = `
-  <div class="col-md-2 offset-md-1">
-          <span>Urutkan: </span>
-          <select id="sort" class="form-select p-1" style="border-radius: 10px">
-            <option value="Paling-sesuai">Paling Sesuai</option>
-            <option value="Tahun-terbaru">Tahun terbaru</option>
-            <option value="Tahun-terlama">Tahun terlama</option>
-          </select>
-        </div>`;
-
   let printSearchCarCard = "";
   carsData.map((car) => {
     printSearchCarCard += `<div class="col-md-4 p-1 d-flex">
