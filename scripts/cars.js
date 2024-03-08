@@ -25,9 +25,14 @@ class Cars {
     return carsSearched;
   }
 
-  carsSortByYearAscending(arr) {
-    arr.sort((car1, car2) => car1.year - car2.year);
-    return arr;
+  carsSortByYearAscending(cars) {
+    cars.sort((car1, car2) => car1.year - car2.year);
+    return cars;
+  }
+
+  carsSortByYearDescending(cars) {
+    cars.sort((car1, car2) => car2.year - car1.year);
+    return cars;
   }
 }
 
