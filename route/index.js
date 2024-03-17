@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 const carRoute = require("./car");
 
-router.use("/rent-cars", carRoute);
+router.use("/cars", carRoute);
 
 module.exports = router;
