@@ -10,6 +10,10 @@ const port = 3000;
 app.use(express.json());
 
 app.use("/", route);
+
+app.use("*", (req, res) => {
+  res.status(404), json({ data: null, message: "Route not found" });
+});
 /*  
     Enable static 
     It will enable the public directory can be loaded, if not loaded we can not access the index.html in the public directory

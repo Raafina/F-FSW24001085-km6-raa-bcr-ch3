@@ -13,7 +13,7 @@ exports.getCar = (req) => {
   return car;
 };
 
-exports.postCar = (req) => {
+exports.addCar = (req) => {
   const car = {
     id: uuid.v4(),
     ...req.body,
@@ -21,4 +21,27 @@ exports.postCar = (req) => {
 
   cars.push(car);
   return car;
+};
+
+exports.updateCar = (req) => {
+  const id = req?.params?.id;
+  const updatedCar = {
+    id,
+    ...req.body,
+  };
+
+  // Update the data by id
+  cars.map((car, index) => {
+    if (car?.id == id) {
+      cars[index] = updatedCar;
+    }
+  });
+  return updatedCar;
+};
+
+exports.deleteCar = (req) => {
+  const id = req?.params?.id;
+  index = cars.findIndex((car) => car.id === id);
+  cars.splice(index, 1);
+  return cars;
 };

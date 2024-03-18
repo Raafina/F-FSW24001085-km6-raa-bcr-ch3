@@ -3,9 +3,16 @@ const router = express.Router();
 const carController = require("../controller/car");
 
 // Routes
-router.get("/", carController.getAllCars);
-router.get("/:id", carController.getCar);
-router.post("/", carController.postCar);
-// router.put("/", carController.putCar);
+router.route("").get(carController.getAllCars).post(carController.addCar);
+
+router
+  .route("/:id")
+  .get(carController.getCar)
+  .put(carController.updateCar)
+  .delete(carController.deleteCar);
+
+// router.get("/:id");
+// router.put("/:id", carController.updateCar);
+// router.delete("/:id", carController.deleteCar);
 
 module.exports = router;
