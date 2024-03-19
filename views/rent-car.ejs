@@ -118,19 +118,15 @@
 <div class="container pt-3">
   <div class="row">
     <div class="col-md-2 offset-md-1">
-      <form id="sort-form" action="/rent-car" method="get">
-        <span>Urutkan</span>
-        <select
-          name="sort"
-          id="sort-select"
-          class="form-select p-1"
-          style="border-radius: 10px"
-        >
-          <option value="Paling-sesuai">Paling Sesuai</option>
-          <option value="Tahun-terbaru">Tahun terbaru</option>
-          <option value="Tahun-terlama">Tahun terlama</option>
-        </select>
-      </form>
+      <% if (typeof data !== 'undefined') { %>
+      <label class="form-label" for="sortByYear">Urutkan Tahun</label>
+      <select id="sortByYear" name="sortByYear" class="form-select">
+        <option value="paling-sesuai" selected>Paling sesuai</option>
+        <option value="terbaru">Terbaru</option>
+        <option value="terlama">Terlama</option>
+      </select>
+
+      <% } %>
     </div>
   </div>
 </div>
@@ -194,3 +190,77 @@
     </div>
   </div>
 </div>
+
+<% if (typeof data !== 'undefined') { %>
+<div id="jsonStringify" style="display: none"><%= JSON.stringify(data) %></div>
+<% } %>
+
+<script>
+  let data = JSON.parse(document.getElementById("jsonStringify").textContent);
+  let data2 = [...data];
+  const cardCars = document.getElementById("card-car");
+  const sortByYear = document.getElementById("sortByYear");
+
+  function printSortByYear(arr) {
+    let printSearchCarCard = "";
+    arr.map((car) => {
+      printSearchCarCard += `<div class="col-md-4 p-1 d-flex">
+            <div class="card flex-fill">
+              <img
+                src="${car.image}"
+                class="card-img-top p-4"
+                alt="car sample"
+              />
+              <div class="card-body d-flex flex-column">
+                <p style="font-weight: 500">${car.model}</p>
+                <h5 class="card-title">${car.rentPerDay}</h5>
+                <p class="card-text">${car.description}</p>
+                <p>
+                  <span
+                    ><img
+                      src="Icons/icon_jumlahOrang.png"
+                      alt="icon jumlah orang"
+                  /></span>
+                  ${car.capacity} Orang
+                </p>
+                <p>
+                  <span
+                    ><img
+                      src="Icons/icon_Spesifikasi.png"
+                      alt="icon spesifikasi"
+                  /></span>
+                  ${car.transmission}
+                </p>
+                <p>
+                  <span><img src="Icons/icon_date.png" alt="icon date" /></span>
+                  Tahun ${car.year}
+                </p>
+                <div class="mt-auto">
+                  <a
+                    href="#"
+                    class="btn btn-success d-flex flex-fill justify-content-center"
+                    style="
+                      background-color: #5cb85f;
+                      font-weight: 500;
+                      color: white;
+                    "
+                    >Pilih Mobil</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>`;
+    });
+    cardCars.innerHTML = printSearchCarCard;
+  }
+
+  sortByYear.addEventListener("change", (event) => {
+    if (sortByYear.value == "terbaru") {
+      printSortByYear(data.sort((car1, car2) => car2.year - car1.year));
+    } else if (sortByYear.value == "terlama") {
+      printSortByYear(data.sort((car1, car2) => car1.year - car2.year));
+    } else {
+      printSortByYear(data2);
+    }
+  });
+</script>
