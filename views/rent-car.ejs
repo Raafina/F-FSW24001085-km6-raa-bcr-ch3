@@ -201,9 +201,9 @@
   const cardCars = document.getElementById("card-car");
   const sortByYear = document.getElementById("sortByYear");
 
-  function printSortByYear(arr) {
+  printSortByYear = (carsData) => {
     let printSearchCarCard = "";
-    arr.map((car) => {
+    carsData.map((car) => {
       printSearchCarCard += `<div class="col-md-4 p-1 d-flex">
             <div class="card flex-fill">
               <img
@@ -252,7 +252,7 @@
           </div>`;
     });
     cardCars.innerHTML = printSearchCarCard;
-  }
+  };
 
   sortByYear.addEventListener("change", (event) => {
     if (sortByYear.value == "terbaru") {
