@@ -1,0 +1,142 @@
+<!-- Main Header -->
+<div class="container-fluid" style="background-color: #f1f3ff">
+  <div class="container">
+    <div class="row py-5 g-5">
+      <div class="col-md-6 my-auto ju" style="text-align: justify">
+        <h1>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+        <p>
+          elamat datang di Binar Car Rental. Kami menyediakan mobil kualitas
+          terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu
+          untuk sewa mobil selama 24 jam.
+        </p>
+        <a href="/rent-car">
+          <button
+            type="button"
+            class="btn btn-success"
+            style="font-weight: bold"
+          >
+            Mulai Sewa Mobil
+          </button>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <img src="Image/img_car.png" alt="Image Car" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Search Box -->
+<div class="container pt-4">
+  <div class="row d-flex justify-content-center">
+    <div
+      class="col-md-10"
+      style="background-color: #f1f3ff; border-radius: 10px"
+    >
+      <form class="p-3" role="search" id="search-submit">
+        <div class="row g-2 align-items-end d-flex justify-content-around">
+          <div class="col-md-3">
+            <!-- tanggal -->
+            <div class="row">
+              <div class="col-md-12">
+                <label for="date" class="form-label">Tanggal</label>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <input id="date" type="date" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!-- waktu jemput -->
+            <div class="row">
+              <div class="col-md-12">
+                <label for="waktu-jemput" class="form-label"
+                  >Waktu Jemput</label
+                >
+              </div>
+              <div class="col-md-12">
+                <select id="waktu-jemput" class="form-select">
+                  <option value="08:00">08:00 WIB</option>
+                  <option value="09:00">09:00 WIB</option>
+                  <option value="10:00">10:00 WIB</option>
+                  <option value="11:00">11:00 WIB</option>
+                  <option value="12:00">12:00 WIB</option>
+                  <option value="13:00">13:00 WIB</option>
+                  <option value="14:00">14:00 WIB</option>
+                  <option value="15:00">15:00 WIB</option>
+                  <option value="16:00">16:00 WIB</option>
+                  <option value="17:00">17:00 WIB</option>
+                  <option value="18:00">18:00 WIB</option>
+                  <option value="19:00">19:00 WIB</option>
+                  <option value="20:00">20:00 WIB</option>
+                  <option value="21:00">21:00 WIB</option>
+                  <option value="22:00">20:00 WIB</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- jumlah penumpang -->
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="total-passanger" class="form-label"
+                  >Jumlah Penumpang (optional)</label
+                >
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="number"
+                name=""
+                id="total-passanger"
+                class="form-control"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="row">
+              <div class="col-md-12">
+                <button
+                  class="btn mt-2"
+                  type="submit"
+                  style="
+                    background-color: #5cb85f;
+                    color: white;
+                    font-weight: 500;
+                  "
+                >
+                  Cari Mobil
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- sort by -->
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-md-2 offset-md-1">
+      <span>Urutkan</span>
+      <select id="sort" class="form-select p-1" style="border-radius: 10px">
+        <option value="Paling-sesuai">Paling Sesuai</option>
+        <option value="Tahun-terbaru">Tahun terbaru</option>
+        <option value="Tahun-terlama">Tahun terlama</option>
+      </select>
+    </div>
+  </div>
+</div>
+<!-- Card Car -->
+<div class="container-fluid py-4">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10">
+        <div class="row" id="card-car"></div>
+      </div>
+    </div>
+  </div>
+</div>
