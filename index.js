@@ -9,8 +9,8 @@ const port = 3000;
 
 // ejs
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extends: true }));
 app.use(expressLayouts);
-
 app.use(express.static("public"));
 
 /* Enable request body (json) */

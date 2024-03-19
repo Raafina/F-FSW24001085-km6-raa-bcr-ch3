@@ -18,6 +18,7 @@ class Cars {
   carsSearch(date, totalPassanger) {
     const carAvailable = this.filterCarAvailable();
     const carsSearched = carAvailable.filter(
+      
       (car) =>
         new Date(car.availableAt.substring(0, 10)) <= new Date(date) &&
         totalPassanger <= car.capacity
